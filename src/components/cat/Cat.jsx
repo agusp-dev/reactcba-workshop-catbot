@@ -2,7 +2,7 @@ import React from 'react'
 import Lottie from 'react-lottie'
 import animationCat from './catAnim.json'
 
-const Cat = () => {
+const Cat = ({history}) => {
 
 	const defaultOptions = {
 		loop: true,
@@ -11,7 +11,7 @@ const Cat = () => {
 	}
 
 	const handleOnClick = () => {
-		console.log('clsssick')
+		history.push('/chat')
 	} 
 
 	return (
@@ -22,7 +22,6 @@ const Cat = () => {
 				isClickToPauseDisabled={true}
 				options={defaultOptions}
 			/>
-			<label>¡Hola Humano!</label>
 		</div>
 	)
 }

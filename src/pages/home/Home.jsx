@@ -1,10 +1,11 @@
 import React from 'react'
 import Cat from '../../components/cat/Cat'
 
-const Home = () => {
+const Home = ({history}) => {
 	return (
 		<div>
-			<Cat />
+			<Cat history={history}/>
+			<label>Hola Humano!</label>
 		</div>
 	)
 }
