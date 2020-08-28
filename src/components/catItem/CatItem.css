@@ -1,7 +1,7 @@
 .cat-item-container {
 	display: flex;
 	width: auto;
-	align-items: center;
+	/* align-items: center; */
 }
 
 .cat-item-container img {
@@ -16,7 +16,14 @@
 	background: #432b51;
 	border-radius: 5px;
 	width: fit-content;
-	max-width: 7%;
+	/* max-width: 7%; */
 	font-weight: normal;
 	box-sizing: border-box;
+}
+
+.cat-item-messages {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
