@@ -6,6 +6,8 @@ import './Chat.css'
 
 const Chat = () => {
 
+	let idCounter = 0
+
 	const [ msg, setMsg ] = useState({})
 	const [ chat, setChat ] = useState([
 		{
@@ -14,6 +16,35 @@ const Chat = () => {
 			msg: ['Hi!', 'How is your name?']
 		}
 	])
+
+	const getMyMessage = value => {
+		idCounter++
+		setMsg({
+			id: idCounter,
+			emitter: 'User',
+			msg: value
+		})
+	}
+
+	const sendMessage = e => {
+		e.preventDefault()
+		setChat([ ...chat, msg ])
+	}
+
+	const firstResponse = name => {
+		let newMsg = {
+			id: idCounter + 10,
+			emitter: 'Cat',
+			msg: [
+				'Mucho gusto, ' + name + '!',
+				'Mi nombre es Dimitri, soy un catbot aun en desarrollo',
+				'Haceme una pregunta, y con gusto respondo.'
+			]
+		}
+		if (newMsg) {
+			setChat([ ...chat, newMsg ])
+		}
+	}
 
 	return (
 		<div className='chatbot-chat-container'>
@@ -36,7 +67,9 @@ const Chat = () => {
 						})}
 					</div>
 					<div className='chatbot-chat-container-input'>
-						<InputChat />
+						<InputChat 
+							getMyMessage={ getMyMessage }
+							sendMessage={ sendMessage } />
 					</div>
 				</div>
 			</div>
